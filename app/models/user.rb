@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   # authentication based on subdomain
   def self.find_for_authentication(conditions={}) 
      site = Site.where('name = ?', conditions[:subdomain]).first
-     self.find_by_email_and_site_id(conditions[:email], site.id)
+     self.find_by_email_and_site_id(conditions[:email], site.id) unless site.blank?
   end
 
   def name

@@ -50,15 +50,15 @@ a:active {
                     <div id="topNav">
                         <ul style="list-style:none;">
                             <li><a href="/home">Home</a> </li>
-                            <li><a href="/appointments">Appointments</a> </li>
-                            <% if current_user.type != "Patient" %>
-                               <li><a href="/doctor_patients">MyPatients</a></li>
-                            <% end %>
-                            <% if current_user.is_admin? %>
-                              <li><a href="/users">Master Accounts</a></li>
-                            <% end %>
-                            <li><a href="/patients/<%=current_user.id%>/edit">My Account</a></li>
                             <% if current_user.type != "Admin" %>
+                               <li><a href="/appointments">Appointments</a> </li>
+                               <% if current_user.type != "Patient" %>
+                                 <li><a href="/doctor_patients">MyPatients</a></li>
+                               <% end %>
+                            <% end %> 
+                               <li><a href="/users">Master Accounts</a></li>
+                           <% if current_user.type != "Admin" %>
+                               <li><a href="/patients/<%=current_user.id%>/edit">My Account</a></li>
                                <li><a href="/treatment_forms">Forms</a></li>
                             <% end %>
                             <% if current_user.is_admin? %>
