@@ -1,0 +1,64 @@
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <strong>New Account</strong>
+</div>
+
+<% if @user.errors.any? %>
+   <div id="error_explanation">
+       <ul>
+           <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+           <% end %>
+       </ul>
+   </div>
+<% end %>
+<% if @site.errors.any? %>
+   <div id="error_explanation">
+       <ul>
+           <% @site.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+           <% end %>
+       </ul>
+   </div>
+<% end %>
+
+<div class="forms_container">
+
+     <%= form_for(@user, :url => {:controller => "clinics", :action => "create"}, :method => :post ) do |f| %>
+
+           <div class="forms_container_box">
+                <div class="spacer5"></div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> <%= f.label :first_name %> </div>
+                    <div class="titlebox_two">  <%= f.text_field :first_name %> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> <%= f.label :last_name %> </div>
+                    <div class="titlebox_two">  <%= f.text_field :last_name %> </div>
+                </div>
+                <div class="titlebox_starts">
+                  <div class="titlebox_one"> <%= f.label :email %> </div>
+                  <div class="titlebox_two">  <%= f.text_field :email %> </div>
+                </div>
+                <%= fields_for @site do |site| %>
+                   <div class="titlebox_starts">
+                      <div class="titlebox_one"> Url </div>
+                      <div class="titlebox_two"> http:// <input type="text" maxlength="75" id="site_name" name="site[name]" class="short" /> .familypractice.com  </div>
+                   </div>
+                <% end %>
+                <div class="titlebox_starts">
+                     <div class="titlebox_one"> <%= f.label :password %> </div>
+                     <div class="titlebox_two"> <%= f.password_field :password %> </div>
+                </div>
+                <div class="titlebox_starts">
+                     <div class="titlebox_one"> <%= f.label :password_confirmation %> </div>
+                     <div class="titlebox_two"> <%= f.password_field :password_confirmation %> </div>
+                </div>
+           </div>
+           <div class="update_but">
+              <%= f.submit "Create" %> Or <span class="cancel"> <%= link_to 'Cancel', clinics_path %> </span>
+           </div>
+
+    <% end %>
+
+</div>

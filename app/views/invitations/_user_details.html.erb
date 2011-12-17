@@ -1,0 +1,25 @@
+
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <strong>Step 2 </strong>
+</div>
+
+<div class="forms_container_box"> <br/>
+
+       <%= fields_for :user_detail do |user_detail| %>
+       
+            <div class="birth_titlebox_starts">
+                <div class="birth_titlebox_one"> Date Of Birth </div>
+                <div class="birth_titlebox_two"><%= datetime_select("user_detail", "date_of_birth", :start_year => 1995) %></div>
+            </div>
+            
+           <div class="titlebox_starts">
+              <div class="titlebox_one"> Ethnicity </div>
+              <div class="titlebox_two"> <%= text_field_tag "user_detail[ethnicity]" %> </div>
+           </div>
+           
+           <%= hidden_field_tag 'type', "#{params[:type]}" %>
+           
+       <% end %>
+     
+</div>

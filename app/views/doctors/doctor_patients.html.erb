@@ -1,0 +1,36 @@
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <strong>My Patients</strong>
+</div>  <br /><br /><br />
+
+<% if @my_patients.empty? %>
+   
+     <p> There are no Patients for you right now  </p>
+      
+<% else %>
+    
+     <table border="1" cellpadding="10" cellspacing="2">
+         <tr>
+            <th>Name</th>
+            <th>Email</th>
+         </tr>
+
+         <% @my_patients.each do |p| %>
+         
+             <% patient_record = Patient.find_by_id(p.patient_id) %>
+                <% unless patient_record.blank? %>
+                  <tr>
+                      <td><%= patient_record.first_name %></td>
+                      <td><%= patient_record.email %></td> &nbsp;&nbsp;&nbsp;&nbsp;
+                      <td><%= link_to "View Details", "/patient_details/#{patient_record.id}" %></td>               
+                  </tr>
+                <% end %>
+          <% end %>
+          
+      </table>  <br />
+
+<% end %>
+
+
+
+

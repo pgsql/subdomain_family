@@ -1,0 +1,22 @@
+<div class="edit_content_head"> 
+   <div class="spacer5"></div>
+   <strong>Appointments</strong>
+</div>
+
+<% if current_user.is_patient? %>
+
+     <%= render "patient" %>
+   
+<% end %>
+
+
+<% if current_user.is_doctor? %>
+
+   
+       <%= render "doctor" %>
+       
+<% end %>
+
+   
+
+

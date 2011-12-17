@@ -1,0 +1,11 @@
+<p>
+  <b>Patient Name:</b>
+  <%= @treatment_form.patient.first_name %>
+</p>
+
+<p>
+   <b>Date:</b>
+   <%= @treatment_form.date.strftime('%b %d, %Y')  %>
+</p>
+
+<%= link_to 'Back', treatment_forms_path %>

@@ -1,0 +1,43 @@
+<h2>New Account</h2>
+
+<%= form_for(@user, :url => accounts_path, :method => :post ) do |f| %>
+
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+         <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+            <% end %>
+         </ul>
+      </div>
+    <% end %>
+    
+    <div><%= f.label :first_name %><br />
+    <%= f.text_field :first_name %></div>
+
+    <div><%= f.label :last_name %><br />
+    <%= f.text_field :last_name %></div>
+
+    <div><%= f.label :email %><br />
+    <%= f.email_field :email %></div>
+
+    <div>
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+    </div>
+    
+    <div>
+       <%= f.label :password_confirmation %><br />
+       <%= f.password_field :password_confirmation %></div>
+    <div>
+    
+    <div>
+      <%= f.label :type %><br />
+      <%= f.select :type, options_for_select(%w(Doctor Nurse Staff)) %>
+    </div> <br />
+
+    <div>
+       <%= f.submit "Create" %> Or <%= link_to "Cancel", all_accounts_path, :class => "cancel" %>
+    </div>
+ 
+<% end %>

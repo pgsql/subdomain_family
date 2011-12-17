@@ -1,0 +1,390 @@
+body
+{
+	background:url(/images/Family-Practice_01.jpg) repeat-x #e2e2e2;
+	margin:auto;
+	overflow-x:hidden;
+}
+
+.wrapper
+{
+	width:1002px;
+	margin:auto;
+}
+
+.header
+{
+	width:1002px;
+	height:142px;
+	float:left;
+	overflow:hidden;
+}
+.logo_header
+{
+	width:1002px;
+	height:93px;
+	float:left;
+	overflow:hidden;
+}
+
+.spacer
+{
+	width:1002px;
+	height:30px;
+	float:left;
+	overflow:hidden;
+}
+
+.spacer1
+{
+	width:34px;
+	height:63px;
+	float:left;
+	overflow:hidden;
+}
+
+.logo
+{
+	background:url(/images/Family-Practice_logo_03.jpg);
+	width:343px;
+	height:63px;
+	float:left;
+	overflow:hidden;
+}
+
+.spacer2
+{
+	width:296px;
+	height:63px;
+	float:left;
+	overflow:hidden;
+}
+.email_box
+{
+	width:328px;
+	height:63px;
+	float:left;
+	overflow:hidden;
+}
+
+.spacer3
+{
+	width:328px;
+	height:40px;
+	float:left;
+	overflow:hidden;
+}
+
+.email_boxtwo
+{
+	width:328px;
+	height:22px;
+	float:left;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#13a907;
+}
+
+.menu
+{
+	
+	width:1002px;
+	height:49px;
+	float:left;
+	overflow:hidden;
+}
+
+/* -- top navigation pannel start -- */
+#topNav{
+	width:1002px; height:50px; margin:0 0 0 0; float:left;}
+#topNav ul{
+	width:1000px; margin:0 0 0 12px; float:left;}
+#topNav ul li{
+	float:left; text-transform:uppercase; padding:0 0px 0 0;
+	color:#FFFFFF;
+	font:bold 13px/50px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	
+	
+	}
+#topNav ul li.noDivider{
+	background-image:none; color:#FFFFFF;}
+#topNav ul li a{
+	text-transform:uppercase; text-decoration:none; padding:0 16px; display:block;
+	color:#FFFFFF;
+	font:bold 13px/50px "Trebuchet MS", Arial, Helvetica, sans-serif;}
+#topNav ul li a:hover{
+	background: repeat-x 0 0 #000; color:#FFFFFF;}
+#topNav ul li a.hover{
+	text-transform:uppercase; text-decoration:none; padding:0 16px; display:block;
+	background: repeat-x 0 0 #000; color:#FFFFFF;
+	font:bold 13px/50px "Trebuchet MS", Arial, Helvetica, sans-serif;}
+/* -- top navigation pannel end -- */
+
+
+
+.mid_container
+{
+	width:1002px;
+	float:left;
+	overflow:hidden;
+}
+
+.spacer4
+{
+	width:98px;
+	height:500px;
+	float:left;
+	overflow:hidden;
+}
+
+.forms_container
+{
+	background:#d9d9d9;
+	width:806px;
+	float:left;
+	overflow:hidden;
+	border:#c7c7c7 1px solid;
+}
+
+.edit_content_head
+{
+	width:800px;
+	height:37px;
+	float:left;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:17px;
+	color:#0875ae;
+	margin:0 0 5px 0;
+}
+
+.spacer5
+{
+	width:800px;
+	height:16px;
+	float:left;
+	overflow:hidden;
+}
+
+.spacer6
+{
+	width:806px;
+	height:50px;
+	float:left;
+	overflow:hidden;
+}
+.spacer7
+{
+	width:91px;
+	height:1232px;
+	float:left;
+	overflow:hidden;
+}
+
+.forms_container_box
+{
+	width:613px;
+	float:left;
+	overflow:hidden;
+}
+
+.forms_container_boxone
+{
+	width:613px;
+	height:142px;
+	float:left;
+	overflow:hidden;
+}
+
+.titlebox_starts
+{
+	width:400px;
+	height:24px;
+	float:left;
+	overflow:hidden;
+	margin:0 0 8px 0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#000000;
+
+}
+
+.titlebox_one
+{
+	width:164px;
+	height:22px;
+	float:left;
+	overflow:hidden;
+	margin:2px 0 0 0;
+	
+}
+
+.titlebox_two
+{
+	width:224px;
+	height:24px;
+	float:left;
+	overflow:hidden;
+	
+}
+
+.personal_details
+{
+	background:url(/images/Family-Practice_personal_meet_08.jpg);
+	width:613px;
+	height:33px;
+	float:left;
+	overflow:hidden;
+	cursor:text;
+}
+
+
+.forms_container_boxtwo
+{
+	width:613px;
+	height:323px;
+	float:left;
+	overflow:hidden;
+}
+
+
+.birth_titlebox_starts
+{
+	width:610px;
+	height:24px;
+	float:left;
+	overflow:hidden;
+	margin:0 0 8px 0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#000000;
+
+}
+
+.birth_titlebox_one
+{
+	width:164px;
+	height:22px;
+	float:left;
+	overflow:hidden;
+	margin:2px 0 0 0;
+	
+}
+
+.birth_titlebox_two
+{
+	width:442px;
+	height:24px;
+	float:left;
+	overflow:hidden;
+	
+}
+
+
+.contact_details
+{
+	background:url(/images/Family-Practice_contact_details_11.jpg);
+	width:613px;
+	height:33px;
+	float:left;
+	overflow:hidden;
+	cursor:text;
+}
+
+
+.titleareass_starts
+{
+	width:610px;
+	height:75px;
+	float:left;
+	overflow:hidden;
+	margin:0 0 8px 0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#000000;
+
+}
+
+.titleareass_one
+{
+	width:164px;
+	
+	float:left;
+	overflow:hidden;
+	margin:30px 0 0 0;
+	
+}
+
+.titleareass_two
+{
+	width:230px;
+	height:75px;
+	float:left;
+	overflow:hidden;
+	
+}
+
+.forms_container_boxthree
+{
+	width:613px;
+	height:394px;
+	float:left;
+	overflow:hidden;
+}
+
+.educat_details
+{
+	background:url(/images/Family-Practice_education_13.jpg);
+	width:613px;
+	height:35px;
+	float:left;
+	overflow:hidden;
+	cursor:text;
+}
+
+.forms_container_boxfour
+{
+	width:613px;
+	height:310px;
+	float:left;
+	overflow:hidden;
+}
+
+.update_but
+{
+	width:300px;
+	height:32px;
+	float:left;
+	overflow:hidden;
+	margin:10px 0 0 164px;
+}
+
+.spacer8
+{
+	width:100px;
+	height:23px;
+	float:left;
+	overflow:hidden;
+}
+
+
+.bottom_line
+{
+	background:#b2b2b2;
+	width:1002px;
+	height:1px;
+	float:left;
+	overflow:hidden;
+}
+
+.fotter_copy
+{
+	width:990px;
+	height:23px;
+	float:left;
+	overflow:hidden;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:13px;
+	color:#000;
+	margin:7px 0 0 10px;
+}

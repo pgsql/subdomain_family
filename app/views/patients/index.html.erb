@@ -1,0 +1,29 @@
+
+<h2>Patient Dashboard</h2>
+
+<h3> <%= link_to 'Upload New Identification Detail', new_patient_image_path %> </h3>
+
+    <% @patients.each do |patient| %>
+			  <% all_patient_images = patient.patient_images.find(:all, :conditions => ['patient_id = ?', current_user.id]) %>
+			  	 <% all_patient_images.each_with_index do |patient_image,i| %>
+				       <a href="#<%= patient_image.id %>" rel="facebox">
+					      View Idetification - <%= (i + 1) %>
+					   </a> <br/><br/>
+				      <div id="<%= patient_image.id %>" class="patient-pic" style="display:none">
+					     <%= image_tag patient_image.image.to_s if !patient_image.nil? %>
+				      </div>
+			     <% end %>
+    <% end %>
+
+<h3> <%= link_to 'Upload New Insurance Document', new_upload_path %> </h3>
+
+ <% @patients.each do |patient| %>
+		<% present_user = patient %>
+		<% all_patient_uploads = patient.uploads.find(:all, :conditions => ['user_id = ?', current_user.id]) %>
+		<% all_patient_uploads.each_with_index do |upload_obj,i| %>		     
+		     <%= link_to "View document - #{i + 1}" , "/download/#{upload_obj.id}" %><br/><br/>  
+		<% end %>		
+ <% end %>
+
+
+

@@ -1,0 +1,37 @@
+
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <strong>Step 2 </strong>
+</div>
+
+
+<div class="forms_container_box"> <br/>
+    
+    <%= fields_for :user_detail do |user_detail| %>
+        <div class="titlebox_starts">
+           <div class="titlebox_one"> Business/Occupation  </div>
+           <div class="titlebox_two">  <%= user_detail.text_field :occupation %> </div>
+        </div>
+    <% end %>
+        <div class="titleareass_starts">
+           <div class="titleareass_one"> Address </div>
+           <div class="titleareass_two"> <%= f.text_field :address %> </div>
+        </div>
+        <div class="titlebox_starts">
+           <div class="titlebox_one"> City </div>
+           <div class="titlebox_two"> <%= f.text_field :city %> </div>
+        </div>
+        <div class="titlebox_starts">
+           <div class="titlebox_one"> Country </div>
+           <div class="titlebox_two"> <%= f.text_field :country %> </div>
+        </div>
+        <div class="titlebox_starts">
+           <div class="titlebox_one"> Zipcode </div>
+           <div class="titlebox_two"> <%= f.text_field :zipcode %> </div>
+        </div>
+        <div class="titleareass_starts">
+            <div class="titlebox_one"> Web Address </div>
+            http:// <input type="text" maxlength="75" id="site_name" name="site[name]" class="short" /> .familypractice.com 
+        </div> <br /> 
+     
+</div>

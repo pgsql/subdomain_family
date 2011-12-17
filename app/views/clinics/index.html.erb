@@ -1,0 +1,46 @@
+
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <strong>
+       All Accounts
+    </strong>
+    &nbsp; | &nbsp; <%= link_to 'New Account', new_clinic_path %> <br/><br/>
+</div> <br/><br/>
+
+<%= flash[:notice] %>  <br/><br/>
+
+
+<% if @sites.empty? %>
+
+    <p> There are no Accounts right now </p>
+
+<% else %>
+
+     <table border="1" cellpadding="2" cellspacing="1">
+         <tr>
+             <th> Site Name </th>
+             <th> Admin Name </th>
+             <th> Admin Email</th>
+             <th> Site Url </th>
+             <th> Created</th>
+         </tr>
+
+         <% @sites.each do |site| %>
+            <tr>
+                <td><%= site.name %></td>
+                 <% site_users = site.users.find(:all, :conditions => ['type = ?', "Admin"]) %>
+                 <% site_users.each do |user| %>
+                     <td>
+                        <%= user.first_name + user.last_name if user.last_name %>
+                     </td>
+                     <td><%= user.email %> </td>
+                 <% end %>     
+                 <td> 
+                    <a href="http://<%= site.name %>.familypractice.in:3000" target="_blank">http://<%= site.name %>.familypractice.in:3000</a>
+                 </td>
+                 <td> <%= site.created_at.strftime("%m/%d/%Y") %> </td>
+            </tr>
+         <% end %>
+     </table>
+
+<% end %>

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>My Image:</b>
+  <%= image_tag @patient_image.image.to_s if @patient_image %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_image_path(@patient_image) %> |
+<%= link_to 'Back', patient_images_path %>

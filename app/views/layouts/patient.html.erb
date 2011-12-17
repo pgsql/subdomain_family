@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient</title>
+  <%= stylesheet_link_tag :all, 'app', 'facebox', 'jquery.ui.all' %>
+  <%= javascript_include_tag :defaults, 'jquery.ui.core', 'jquery.ui.datepicker' %>
+  <%= csrf_meta_tag %>  
+</head>
+    
+     <div id="content"><!-- Wraps everything -->
+          <div id="header"><!--The Header -->          
+              <div class="page-width">
+              
+                  <h1> Family Practice </h1>
+                  <div id="user-cp"> <!--User Control Panel -->
+                       <p class="welcome">Welcome <em><%= current_user.email %></em></p>
+                       <ul>                           
+                           <li>&nbsp;<%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                       </ul>
+                  </div> 
+                  <div class="console_header">                       
+                  </div>
+                     
+                   <div class="headernav">                      
+                       <div class="item profile <% if @select == "profile" %> active <% end %>">
+                          <a class="console" href="<%= user_path(current_user) %>">Profile</a>
+                       </div>
+                   </div>
+                  
+              </div>
+         </div>
+    </div>
+    
+<body> 
+<%= yield %>
+
+</body>
+</html>
+
+

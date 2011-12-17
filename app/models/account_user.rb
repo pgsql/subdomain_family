@@ -1,0 +1,3 @@
+class AccountUser < User
+
+end

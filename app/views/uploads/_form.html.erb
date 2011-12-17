@@ -1,0 +1,24 @@
+<%= form_for @upload,:html => {:multipart => true} do |f| %>
+  <% if @upload.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
+
+      <ul>
+      <% @upload.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <ul class="patient-form">
+     <li>
+        <%= f.file_field :my_file %>
+     <li>
+  </ul>
+  <div class="actions">
+      <%= f.submit "Upload" %> <span class="cancel"> Or </span>
+      <%= link_to 'Cancel', patients_path %>
+  </div>
+  
+<% end %>

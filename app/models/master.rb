@@ -1,0 +1,3 @@
+class Master < User
+end
+

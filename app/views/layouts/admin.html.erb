@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Family Practice</title>
+  <%= stylesheet_link_tag :all, 'app', 'style', 'css', 'facebox', 'jquery.ui.all' %>
+  <%= javascript_include_tag :defaults, 'jquery.ui.core', 'jquery.ui.datepicker' %>
+  <%= csrf_meta_tag %>
+  <style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+     <div class="wrapper"> <!--.....header_starts.......-->
+          <div class="header"> <!--.....logo_header_starts.......-->
+               <div class="logo_header">
+                    <div class="spacer"></div>
+                    <div class="spacer1"></div>
+                    <div class="logo"></div>
+                    <div class="spacer2"></div>
+                    <div class="email_box">
+                         <div class="spacer3"></div>
+                         <div class="email_boxtwo">
+                           <div style="width:290px; height:22px; float:left; overflow:hidden;">
+                                <strong>Welcome!</strong> 
+                                <a href="mailto:<%= current_user.email %>" style="color:#13a907;">
+                                   <%= current_user.email %>
+                                </a> &nbsp;&nbsp;
+                                <a href="/users/sign_out">
+                                  <img src="/images/Family-Practice_logout_06.jpg" width="64" height="22" />
+                                  Logout
+                                </a>
+                           </div>
+                           <div style="width:64px; height:22px; float:left; overflow:hidden;">
+                           </div>
+                         </div>
+                    </div>
+               </div> <!--.....logo_header_ends.......-->
+               <div class="menu">
+                    <div id="topNav">
+                        <ul style="list-style:none;">
+                            <li><a href="/home">Home</a> </li>
+                            <li><a href="/invitations/new">Invitations</a> </li>
+                        </ul>
+                    </div>  <!-- top navigation pannel end -->
+              </div> <!-- main menu pannel end -->
+          </div> <!--.....header_ends.......-->
+     </div>               
+  <br /><br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <div class="mid_container">
+
+<div class="spacer4"></div>
+
+
+
+   <%= yield %>
+
+<div class="spacer8"></div>
+
+<div class="fotter_copy">©2011 Family Practice l Terms & Privacy</div>
+
+
+
+
+<!--.....mid_container_ends.......-->
+
+</div>
+
+</body>
+
+</html>
+
+
+

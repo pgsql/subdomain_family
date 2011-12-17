@@ -1,0 +1,67 @@
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <strong>New Treatment Form</strong>
+</div>
+<% if @treatment_form.errors.any? %>
+      <div id="error_explanation">
+         <ul>
+            <% @treatment_form.errors.full_messages.each do |msg| %>
+               <li><%= msg %></li>
+            <% end %>
+         </ul>
+      </div>
+<% end %>
+
+<div class="forms_container">
+
+    <%= form_for(@treatment_form, :url => treatment_forms_path, :method => :post ) do |f| %>
+
+          <div class="forms_container_box">
+                <div class="spacer5"></div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> Patient </div>
+                    <div class="titlebox_two"> <%= f.select :patient_id,  options_from_collection_for_select(@patients, "id", "first_name") %> </div>
+                </div>
+                <div class="birth_titlebox_starts">
+                    <div class="birth_titlebox_one"> <%= f.label :date %></div>
+                    <div class="birth_titlebox_two"> <%= f.date_select :date %> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> <%= f.label :complaints %> </div>
+                    <div class="titlebox_two"> <%= f.text_field :complaints %> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> <%= f.label :rating %> </div>
+                    <div class="titlebox_two">  <%= f.select :rating, options_for_select(%w(1 2 3 4 5 6 7 8 9 10)) %> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> Yes </div>
+                    <div class="titlebox_two"> <input type="checkbox" id="treatment_form_aggravating_factors" name="treatment_form[aggravating_factors]" value="yes" /> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> No </div>
+                    <div class="titlebox_two"> <input type="checkbox" id="treatment_form_aggravating_factors" name="treatment_form[aggravating_factors]" value="no" /> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> <%= f.label :aggravating_factors_text %> </div>
+                    <div class="titlebox_two"> <%= f.text_field :aggravating_factors_text %> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> Yes </div>
+                    <div class="titlebox_two"> <input type="checkbox" id="treatment_form_new_injuries" name="treatment_form[new_injuries]" value="yes" /> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"> No </div>
+                    <div class="titlebox_two"> <input type="checkbox" id="treatment_form_new_injuries" name="treatment_form[new_injuries]" value="no" /> </div>
+                </div>
+                <div class="titlebox_starts">
+                    <div class="titlebox_one"><%= f.label :new_injuries_text %> </div>
+                    <div class="titlebox_two"> <%= f.text_field :new_injuries_text %> </div>
+                </div>
+          </div>     
+          <div class="update_but">
+             <%= f.submit "Create" %> Or <%= link_to "Cancel", "/treatment_forms", :class => "cancel" %>
+          </div>
+ 
+    <% end %>
+</div>

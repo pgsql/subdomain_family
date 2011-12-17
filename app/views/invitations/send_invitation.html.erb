@@ -1,0 +1,23 @@
+
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <strong>Invitations</strong>
+</div>
+
+<div class="forms_container">
+    
+    <%= form_tag(:invitations, :method => "post") do %>
+           <div class="forms_container_box">
+                <div class="spacer5"></div>
+                <p class="subText"> Please enter the comma separated emails </p>
+                 <div class="titleareass_starts">
+                    <div class="titleareass_one"> <%= label_tag(:q, "Email Adress:") %> </div>
+                    <div class="titleareass_two"> <%= text_area_tag(:q) %> </div>
+                </div>                
+           </div >
+           <div class="update_but">
+              <%= submit_tag("SendMail") %> Or <span class="cancel"> <%= link_to 'Cancel', clinics_path %> </span>
+           </div>
+    <% end %>
+    
+</div>

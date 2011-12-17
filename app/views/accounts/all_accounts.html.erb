@@ -1,0 +1,32 @@
+
+
+<h2> Users List View </h2>
+
+<table  border="1" cellpadding="10" cellspacing="2" >
+  <tr>
+	<th> Name </th>&nbsp;&nbsp;
+	<th> Email</th>
+  <th> Type</th>
+	<th></th>	
+  </tr>
+
+  <% @users.each do |user| %>
+
+     <tr>
+	
+	     <td><%= user.name %></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	     <td><%= user.email %></td>
+       <td><%= user.type %></td>
+	     <td>
+	         <%= link_to 'Edit', edit_account_path(user) %> |
+	         <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/accounts/<%= user.id %>">Delete</a>
+	     </td>
+	
+     </tr>
+	 
+  <% end %>
+  
+</table><br/>
+
+
+<%= link_to 'New Account', new_account_path %>

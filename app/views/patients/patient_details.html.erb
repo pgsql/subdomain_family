@@ -1,0 +1,51 @@
+<p>
+  <b>Email:</b>
+  <%= @patient.email %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @patient.first_name  %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @patient.city %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @patient.zipcode %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @patient.mobile_number %>
+</p>
+
+         
+     <h3> Patient Identification Details & Uploads </h3>
+         
+       <% all_patient_images = @patient.patient_images.find(:all, :conditions => ['patient_id = ?', @patient.id]) %>
+    
+         <% all_patient_images.each_with_index do |patient_image,i| %>
+             <a href="#<%= patient_image.id %>" rel="facebox">
+              View Idetification - <%= (i + 1) %>
+             </a> <br/><br/>
+            <div id="<%= patient_image.id %>" class="patient-pic" style="display:none">
+             <%= image_tag patient_image.image.to_s if !patient_image.nil? %>
+            </div>
+         <% end %>
+         
+      <% all_patient_uploads = @patient.uploads.find(:all, :conditions => ['user_id = ?', @patient.id]) %>
+      <% all_patient_uploads.each_with_index do |upload_obj,i| %>		     
+        <%= link_to "View document - #{i + 1}" , "/download/#{upload_obj.id}" %><br/><br/>  
+      <% end %>
+      
+
+   <%= link_to "Back", "/doctor_patients" %>

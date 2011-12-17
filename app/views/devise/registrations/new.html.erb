@@ -1,0 +1,38 @@
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <strong>Sign Up</strong>
+</div>
+<% if @site %>
+<% if @site.errors.any? %>
+   <div id="error_explanation">
+       <ul>
+           <% @site.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+           <% end %>
+       </ul>
+   </div>
+<% end %>
+<% end %>
+
+<div class="forms_container">
+
+     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+     
+         <%= devise_error_messages! %>
+         
+         <%= render "#{@user.current_step}", :f => f %>
+         
+         <div class="update_but">
+             <%= f.submit "Continue" %> 
+             <% unless @user.first_step? %>
+                |  <%= f.submit "Back", :name => "previous_button"  %> 
+             <% end %> Or <span class="cancel"> <%= link_to 'Cancel', "/users/sign_in" %> </span>
+         </div>
+
+     <% end %>
+
+     <%#= render :partial => "devise/shared/links" %>
+
+</div>
+
+

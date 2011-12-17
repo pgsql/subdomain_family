@@ -1,0 +1,19 @@
+<p>
+
+  Hello,
+
+     You have been invited to the Family Practice Site with the URL <br/>
+     Click here ( 
+     <% if @current_site.nil? %>
+         <a href="http://<%= Configuration.site_link %>">http://<%= Configuration.site_link %></a>
+     <% else %>
+         <a href="http://<%= @current_site.name %>.<%= Configuration.site_link %>">http://<%= @current_site.name %>.<%= Configuration.site_link %></a>
+     <% end %> ) to register
+  
+</p> 
+
+<br/>
+<p>
+    Thank you<br/>
+    Family Practice Team
+</p>

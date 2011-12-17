@@ -1,0 +1,41 @@
+<h1> All Appointments </h1>
+<table border="1" cellpadding="5" cellspacing="1">
+        <tr>
+           <th>Doctor</th>
+           <th>Start time</th>
+           <th>End time</th>
+           <th>Hosiptal name</th> &nbsp;&nbsp;&nbsp;
+           <th>Purpose</th>
+           <th>Approval Status</th>
+           <th></th>
+         </tr>
+    <% unless @appointments.nil?%>
+      <% @appointments.each do |appointment| %>
+        <tr>
+               <td><%= appointment.doctor.first_name %></td>
+               <td><%= appointment.start_time.strftime('%b %e, %l:%M %p') %></td>
+               <td><%= appointment.end_time.strftime('%b %e, %l:%M %p') %></td>
+               <td><%= appointment.hosiptal_name %></td>
+               <td><%= appointment.purpose %></td> &nbsp;&nbsp;&nbsp;
+               <td>
+                   <% if appointment.is_pending? %>
+                      <span class="pending"> <%= appointment.get_approval_status %> </span>
+                   <% elsif appointment.is_approved? %>
+                      <span class="approved"> <%= appointment.get_approval_status %> </span>
+                   <% end %>
+               </td> &nbsp; &nbsp;
+
+               <td>
+                 <%= link_to 'Show', "/admin/appointments/#{appointment.id}" %> |
+                 <%= link_to 'Edit', edit_admin_appointment_path(appointment) %> |
+                 <%= link_to 'Destroy', "/admin/appointments/#{appointment.id}", :confirm => 'Are you sure?', :method => :delete %>
+               </td>
+           </tr>
+    <% end %>
+    <% end %>
+ </table>  <br />
+<%= link_to "New Appointment", new_admin_appointment_path%>
+
+
+
+

@@ -1,0 +1,46 @@
+<% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="forms_container">
+   
+    <%= form_for(@appointment) do |f| %>
+  
+            <div class="forms_container_box">
+                 <div class="spacer5"></div>
+                 <div class="titlebox_starts">
+                    <div class="titlebox_one"> <%= f.label "select Doctor" %> </div>
+                    <div class="titlebox_two"> <%= f.collection_select :doctor_id, Doctor.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "Select Doctor"}, {"style" => "width:250px" } %> </div>
+                 </div>
+                 <div class="birth_titlebox_starts">
+					<div class="birth_titlebox_one"> <%= f.label :start_time %> </div>
+					<div class="birth_titlebox_two"> <%= f.datetime_select :start_time %> </div>
+				 </div>
+                 <div class="birth_titlebox_starts">
+                    <div class="birth_titlebox_one"> <%= f.label :end_time %> </div>
+                    <div class="birth_titlebox_two"> <%= f.datetime_select :end_time %> </div>
+                 </div>
+                 <div class="titlebox_starts">
+                    <div class="titlebox_one"> <%= f.label :hosiptal_name %> </div>
+                    <div class="titlebox_two"> <%= f.text_field :hosiptal_name %> </div>
+                 </div>                 
+                 <div class="titlebox_starts">
+                    <div class="titlebox_one"> <%= f.label :purpose %> </div>
+                    <div class="titlebox_two"> <%= f.text_field :purpose %> </div>
+                 </div>
+           </div>
+           <div class="update_but">
+              <%= f.submit %> Or <span class="cancel"> <%= link_to 'Cancel', appointments_path %> </span>
+           </div>
+        
+    <% end %>
+    
+</div>

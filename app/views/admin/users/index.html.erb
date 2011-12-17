@@ -1,0 +1,31 @@
+<br />
+<table border="1" cellpadding="5" cellspacing="1">
+  <tr>
+    <th> Email</th>
+    <th>Name </th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Country </th>
+    <th>Zipcode</th>
+    <th>Mobile No</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.first_name + user.last_name if user.last_name %></td>
+    <td><%= user.address %></td>
+    <td><%= user.city %></td>
+    <td><%= user.country %></td>
+    <td><%= user.zipcode %></td>
+    <td><%= user.mobile_number %></td>
+    <td><%= link_to 'Show',"/admin/users/#{user.id}" %></td>
+    <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+    <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/admin/users/<%= user.id %>">Destroy</a></td>
+ </tr>
+<% end %>
+</table><br/>
+
+
+<%= link_to 'New User', new_admin_user_path %>
+

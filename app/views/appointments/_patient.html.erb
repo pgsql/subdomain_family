@@ -1,0 +1,41 @@
+<% unless @appointments.empty? %>
+
+ <table>
+        <tr>
+           <th>Doctor</th>
+           <th>Start time</th>
+           <th>End time</th>
+           <th>Hosiptal name</th> &nbsp;&nbsp;&nbsp;
+           <th>Purpose</th>
+           <th>Approval Status</th>
+           <th></th>           
+         </tr>
+
+        <% @appointments.each do |appointment| %>
+           <tr>
+               <td><%= appointment.doctor.first_name unless appointment.patient.blank? %></td>
+               <td><%= appointment.start_time.strftime('%b %e, %l:%M %p') %></td>
+               <td><%= appointment.end_time.strftime('%b %e, %l:%M %p') %></td>
+               <td><%= appointment.hosiptal_name %></td>
+               <td><%= appointment.purpose %></td> &nbsp;&nbsp;&nbsp;
+               <td>
+                   <% if appointment.is_pending? %>
+                      <span class="pending"> <%= appointment.get_approval_status %> </span>
+                   <% elsif appointment.is_approved? %>
+                      <span class="approved"> <%= appointment.get_approval_status %> </span>
+                   <% end %>           
+               </td> &nbsp; &nbsp;
+               
+               <td>
+                 <%= link_to 'Show', appointment %> |
+                 <%= link_to 'Edit', edit_appointment_path(appointment) %> |
+                 <%= link_to 'Destroy', appointment, :confirm => 'Are you sure?', :method => :delete %>
+               </td>
+           </tr>
+       <% end %>
+ </table>  <br />
+
+<% end %>
+
+ <%= link_to 'New Appointment', new_appointment_path %> 
+ 

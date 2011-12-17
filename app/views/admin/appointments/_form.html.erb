@@ -1,0 +1,41 @@
+<%= form_for(@appointment ,:url=>{:controller=>'admin/appointments'}) do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "select Doctor" %><br />
+   <%= f.collection_select :doctor_id, Doctor.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "Select Doctor"}, {"style" => "width:250px" } %>
+  </div>
+  <div class="field">
+    <%= f.label "select Patient" %><br />
+   <%= f.collection_select :patient_id, Patient.find(:all, :order => "first_name"), :id, :first_name, {:include_blank => "Select Patient"}, {"style" => "width:250px" } %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br />
+    <%= f.datetime_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :hosiptal_name %><br />
+    <%= f.text_field :hosiptal_name %>
+  </div>
+  <div class="field">
+    <%= f.label :purpose %><br />
+    <%= f.text_field :purpose %>
+  </div>
+  <div class="actions">
+    <%= f.submit %> Or <span class="cancel"> <%= link_to 'Cancel', admin_appointments_path %> </span>
+  </div>
+<% end %>

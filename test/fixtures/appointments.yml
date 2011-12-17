@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  doctor_id: 1
+  patient_id: 1
+  start_time: 2011-11-07 22:59:17
+  end_time: 2011-11-07 22:59:17
+  hosiptal_name: MyString
+  purpose: MyString
+
+two:
+  doctor_id: 1
+  patient_id: 1
+  start_time: 2011-11-07 22:59:17
+  end_time: 2011-11-07 22:59:17
+  hosiptal_name: MyString
+  purpose: MyString

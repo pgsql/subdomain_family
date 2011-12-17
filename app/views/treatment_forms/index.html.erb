@@ -1,0 +1,33 @@
+<h2>  My Treatments List</h2>
+<br/><br/>
+   <% if current_user.is_doctor? %>
+      <%= link_to "New Treatment Form", new_treatment_form_path %>
+   <% end %>
+<% unless @treatment_forms.empty? %>
+ <table border="1" cellpadding="5" cellspacing="1">
+        <tr>
+           <th>Patient</th>
+           <th>Date</th>
+           <th>Complaints</th>
+         </tr>
+        <% @treatment_forms.each do |form| %>
+           <tr>
+               <td><%= form.patient.first_name %></td>
+               <td><%= form.date.strftime('%b %d, %Y') %></td> 
+               <td><%= form.complaints %></td>
+               <td>
+                  <%= link_to 'Show',"/treatment_forms/#{form.id}" %> 
+                  <% if current_user.is_doctor? %>
+                     | <%= link_to 'Edit', edit_treatment_form_path(form) %> |
+                     <a rel="nofollow" data-method="delete" data-confirm="Are you sure?" class="delete" href="/treatment_forms/<%= form.id %>">Destroy</a>
+                  <% end %>
+               </td>
+           </tr>
+       <% end %>
+       
+ </table>  <br />
+
+<% end %>
+
+
+

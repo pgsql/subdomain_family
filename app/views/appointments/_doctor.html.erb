@@ -1,0 +1,37 @@
+
+<% unless @appointments.empty? %>
+
+ <table border="1" cellpadding="10" cellspacing="2">
+		<tr>
+		   <th>Patient</th>
+		   <th>Start Time</th>
+		   <th>End Time</th>
+		   <th>Hosiptal Name</th> &nbsp;&nbsp;&nbsp;
+		   <th>Purpose</th>
+		   <th>Approval Status</th>
+		 </tr>
+
+		<% @appointments.each do |appointment| %>
+		   <tr>
+			   <td> <%= appointment.patient.first_name  unless appointment.patient.blank? %></td>
+			   <td><%= appointment.start_time.strftime('%b %e, %l:%M %p') %></td>
+			   <td><%= appointment.end_time.strftime('%b %e, %l:%M %p') %></td>
+			   <td><%= appointment.hosiptal_name %></td>
+			   <td><%= appointment.purpose %></td> &nbsp;
+			   <td>
+			        <% if appointment.is_pending? %>
+				       <form action="/appointment_approve/<%= appointment.id %>">
+					      <input name="commit" type="submit" value="Approve" />
+					   </form>
+					<% end %>
+				   <% if appointment.is_approved? %>
+				       <span class="approved"> <%= appointment.get_approval_status %> </span>
+				   <% end %>
+			   </td>			  
+		   </tr>
+	   <% end %>
+ </table>  <br />
+
+<% end %>
+
+

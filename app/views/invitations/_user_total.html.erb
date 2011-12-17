@@ -1,0 +1,64 @@
+ 
+<div class="edit_content_head"> 
+    <div class="spacer5"></div>
+    <% if params[:type] == "Patient" || params[:type] == "Doctor" %>
+        <strong> Step 3 - Confirmation </strong>
+    <% else %>
+        <strong> Step 2 - Confirmation </strong>
+    <% end %>
+</div>
+
+<div class="forms_container_box"> <br/>
+
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :first_name %> </div>
+                           <div class="titlebox_two"> <%= f.text_field :first_name %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :last_name %> </div>
+                           <div class="titlebox_two"> <%= f.text_field :last_name %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :email %> </div>
+                           <div class="titlebox_two"> <%= f.email_field :email %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :password %></div>
+                           <div class="titlebox_two"> <%= f.password_field :password %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> <%= f.label :password_confirmation %> </div>
+                           <div class="titlebox_two">  <%= f.password_field :password_confirmation %> </div>
+                       </div>
+                       <div class="titlebox_starts">
+                           <div class="titlebox_one"> User Type </div>
+                           <div class="titlebox_two">
+                              <%= select_tag :type, options_for_select(%w(Doctor Patient Nurse Staff), "#{params[:type]}" ) %> 
+                           </div>
+                       </div>
+         
+      <% if params[:type] == "Patient" ||  params[:type] == "Doctor" %>     
+               <%= fields_for :user_detail do |user_detail| %>
+                    <div class="birth_titlebox_starts">
+                       <div class="birth_titlebox_one"> Date Of Birth </div>
+                       <div class="birth_titlebox_two"><%= datetime_select("user_detail", "date_of_birth", :start_year => 1995) %></div>
+                    </div>
+                    <div class="titlebox_starts">
+                        <div class="titlebox_one"> Ethnicity </div>
+                        <div class="titlebox_two"> <%= text_field_tag "user_detail[ethnicity]" %> </div>
+                    </div>
+               <% end %>
+      <% end %>
+      
+      <div class="titleareass_starts">
+               <div class="titleareass_one"> Legal Accept Form </div>
+               <div class="titleareass_two">
+                  <%= f.check_box :terms_and_conditions %> &nbsp;&nbsp;
+                    By clicking on Terms and Conditions above you are agreeing to the 
+                    Terms of Service above and both the Program Policy and the Privacy Policy.
+               </div>
+      </div>
+      
+</div>
+
+

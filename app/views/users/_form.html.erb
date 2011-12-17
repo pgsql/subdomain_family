@@ -1,0 +1,54 @@
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="forms_container">
+
+    <%= form_for(@user) do |f| %>
+      
+         <div class="forms_container_box">
+              <div class="spacer5"></div>
+              <div class="titlebox_starts">
+                  <div class="titlebox_one"> <%= f.label :email %> </div>
+                  <div class="titlebox_two">  <%= f.text_field :email %> </div>
+              </div>
+              <div class="titlebox_starts">
+                  <div class="titlebox_one"> <%= f.label :first_name %> </div>
+                  <div class="titlebox_two"> <%= f.text_field :first_name %> </div>
+              </div>
+              <div class="titlebox_starts">
+                  <div class="titlebox_one"> <%= f.label :last_name %> </div>
+                  <div class="titlebox_two">  <%= f.text_field :last_name %> </div>
+              </div>
+              <div class="titleareass_starts">
+                  <div class="titleareass_one"> <%= f.label :address %> </div>
+                  <div class="titleareass_two"> <%= f.text_field :address %> </div>
+              </div>
+              <div class="titlebox_starts">
+                  <div class="titlebox_one"> <%= f.label :city %> </div>
+                  <div class="titlebox_two"> <%= f.text_field :city %> </div>
+              </div>
+              <div class="titlebox_starts">
+                  <div class="titlebox_one"> <%= f.label :zipcode %> </div>
+                  <div class="titlebox_two"> <%= f.text_field :zipcode %> </div>
+              </div>
+              <div class="titlebox_starts">
+                  <div class="titlebox_one"> <%= f.label :mobile_number %> </div>
+                  <div class="titlebox_two"> <%= f.text_field :mobile_number %> </div>
+              </div>
+         </div>
+         <div class="update_but">
+            <%= f.submit "Update" %> Or <span class="cancel"> <%= link_to 'Cancel', users_path %> </span>
+         </div>
+         
+   <% end %>
+  
+</div>
