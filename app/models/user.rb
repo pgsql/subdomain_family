@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
   def self.find_for_authentication(conditions={}) 
      site = Site.where('name = ?', conditions[:subdomain]).first
      self.find_by_email_and_site_id(conditions[:email], site.id)
-	Rails.logger.info site.inspect 
   end
 
   def name

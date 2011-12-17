@@ -7,11 +7,9 @@ class ApplicationController < ActionController::Base
    def after_sign_out_path_for(resource_or_scope)
       '/users/sign_in'
    end
-   
    def find_site
-	Rails.logger.info request.inspect
       if(request.subdomain != nil)
-        @current_site = Site.where('name = ?', request.subdomain).first
+         @current_site = Site.where('name = ?', request.subdomain.split(".").first).first
       else
         raise BadRequest
       end
